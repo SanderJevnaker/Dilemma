@@ -1,6 +1,6 @@
 import { useNavigation } from '@react-navigation/core';
 import { StyleSheet, Text, TextInput, TouchableOpacity, View, Button, Alert } from 'react-native';
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { auth } from '../firebase';
 
 
@@ -12,37 +12,37 @@ const HomeScreen = () => {
 
   const handleSignOut = () => {
     auth
-    .signOut()
-    .then(() => {
-      navigation.replace("Login")
-    })
-    .catch(error => alert(error.message))
+      .signOut()
+      .then(() => {
+        navigation.replace("Login")
+      })
+      .catch(error => alert(error.message))
   }
-  
+
   const [text, setText] = useState('');
   return (
 
     <View style={styles.container}>
 
-    <View>
-      <TextInput
-        style={styles.input}
-        placeholder="Add player"
-        onChangeText={newText => setText(newText)}
-        defaultValue={text}
-      />
-      <Text style={{padding: 10, fontSize: 42}}>
-        {text.split(' ').map((word) => word && '🍕').join(' ')}
-      </Text>
-    </View>
+      <View>
+        <TextInput
+          style={styles.input}
+          placeholder="Add player"
+          onChangeText={newText => setText(newText)}
+          defaultValue={text}
+        />
+        <Text style={{ padding: 10, fontSize: 42 }}>
+          {text.split(' ').map((word) => word && '🍕').join(' ')}
+        </Text>
+      </View>
       <TouchableOpacity
-      onPress={handleSignOut}
-      style={styles.button}
+        onPress={handleSignOut}
+        style={styles.button}
       >
         <Text style={styles.buttonText}>Sign out</Text>
       </TouchableOpacity>
     </View>
-    
+
   );
 };
 export default HomeScreen;
@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
   },
   inputContainer: {
     width: '80%'
-},
+  },
   input: {
     borderWidth: 1,
     borderColor: '#777',

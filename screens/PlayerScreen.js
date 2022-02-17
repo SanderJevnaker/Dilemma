@@ -52,7 +52,11 @@ const PlayerScreen = () => {
 
 
             <TouchableOpacity
-                onPress={() => navigation.navigate('Game')}
+                onPress={() =>
+                    navigation.navigate('Game', {
+                        paramKey: inputs,
+                    })
+                }
                 style={styles.goToGame}
             >
                 <Text style={styles.buttonText}>Go to Game</Text>
@@ -63,8 +67,6 @@ const PlayerScreen = () => {
 
 const styles = StyleSheet.create({
     container: {
-        //flex: 1,
-        //padding:1,
         justifyContent: 'center',
         alignItems: 'center',
         marginTop: 60,
@@ -114,6 +116,9 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         marginTop: 10,
     },
+    textInputStyle: {
+        width: "100%",
+    }
 })
 export default PlayerScreen;
 
