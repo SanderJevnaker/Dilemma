@@ -67,14 +67,12 @@ const styles = StyleSheet.create({
     },
     inputContainer: {
         flexDirection: "row",
-        //display: 'flex',
         justifyContent: "space-between",
         borderColor: "#777",
         padding: 10,
         margin: 10,
 
         borderRadius: 10,
-        //width: '60%',
         backgroundColor: "white",
         paddingHorizontal: 15,
         paddingVertical: 10,

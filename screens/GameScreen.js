@@ -1,22 +1,31 @@
 import React from "react";
-import { SafeAreaView, StyleSheet, Text, View, Button, route } from "react-native";
+import { SafeAreaView, StyleSheet, Text, View, Button, route, TouchableOpacity } from "react-native";
 import { _inputs } from "./PlayerScreen";
+
+
+
 
 const GameScreen = (props) => {
     const playerArray = props.route.params.paramKey;
-    console.log(playerArray);
+
+    const shuffleArray = () => {
+        playerArray.sort((a,b) => 0.5 - Math.random());
+        console.log(playerArray);
+
+    };
     return (
         <SafeAreaView style={{ flex: 1 }}>
             <View style={styles.container}>
-                <Text style={styles.heading}>React Native Pass Value From One Screen to Another Using React Navigation</Text>
                 <Text style={styles.textStyle}>
-                    Values passed from First page:{" "}
+                    Values from PlayerScreen{" "}
                     {playerArray.map((player) => (
                         <Text style={styles.textInputStyle}>{player.value}</Text>
                     ))}
                 </Text>
             </View>
-            <Text style={{ textAlign: "center", color: "grey" }}>www.aboutreact.com</Text>
+            <TouchableOpacity onPress={shuffleArray} style={styles.addBtn}>
+                <Text style={{ color: "blue", fontSize: 20 }}>Shuffle</Text>
+            </TouchableOpacity>
         </SafeAreaView>
     );
 };
@@ -41,5 +50,13 @@ const styles = StyleSheet.create({
     },
     textInputStyle: {
         width: "100%",
+    },
+    addBtn: {
+        backgroundColor: "#0782F9",
+        width: "100%",
+        padding: 30,
+        borderRadius: 10,
+        alignItems: "center",
+        marginTop: 10,
     },
 });
